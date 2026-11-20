@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@source '../../storage/framework/views/*.php';
+
+/* Desktop design is drawn at 2560px wide: desktop values here are the Figma value / 2.
+   Mobile values come 1:1 from the 390px mobile frame. */
+@theme {
+  --color-orange: #eb6a28;
+  --color-orange-btn: #f36f31;
+  --color-peach: #ffede3;
+  --color-brown: #432918;
+  --color-cream: #fff9f3;
+  --color-cream-btn: #fffaf7;
+  --color-ink: #1e1e1e;
+  --color-sand: #e0d9d1;
+  --color-taupe: #8b7763;
+  --color-line: #e6d9c9;
+  --color-field: #ded1c1;
+
+  /* ponytail: Tonos (design font) is not licensed as webfont yet; drop its woff2 into
+     public/fonts + add an @font-face and it takes over, Fira Sans is the stand-in. */
+  --font-sans: Tonos, "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-ui: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+/* Polaroids spill over the next section on purpose, without a horizontal scrollbar. */
+body {
+  overflow-x: clip;
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-[1280px] px-5 sm:px-10 xl:px-[132px];
+}
+
+@utility eyebrow {
+  @apply font-ui text-[13px] font-bold tracking-[0.06em] uppercase text-orange lg:font-sans lg:text-[14.5px] lg:tracking-normal;
+}
+
+@utility heading {
+  @apply font-ui text-[30px] leading-[1.1] font-bold tracking-[-0.03em] text-ink lg:font-sans lg:text-[60px] lg:leading-[1.2] lg:tracking-[-0.06em];
+}
+
+@utility lead {
+  @apply font-ui text-lg leading-normal text-brown lg:font-sans lg:text-xl lg:leading-[1.2];
+}
+
+@utility btn {
+  @apply inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 font-ui text-base font-bold transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange lg:px-5 lg:text-[14.5px] lg:font-normal;
+}
+
+@utility btn-primary {
+  @apply bg-orange-btn text-white;
+}
+
+@utility btn-outline {
+  @apply border border-brown bg-cream-btn text-brown;
+}
+
+@utility card {
+  @apply rounded-2xl bg-white shadow-[0_5px_26px_-6px_rgba(0,0,0,0.06)] lg:rounded-[13px] lg:shadow-[0_4px_13px_-6px_rgba(0,0,0,0.11)];
+}
+
+@utility photo {
+  @apply rounded-[18px] object-cover shadow-[0_5px_26px_-6px_rgba(0,0,0,0.06)] lg:rounded-[13px] lg:shadow-[0_4px_13px_-6px_rgba(0,0,0,0.11)];
+}
+
+@utility icon-badge {
+  @apply flex size-11 items-center justify-center rounded-full bg-peach lg:size-9;
+}
+
+@utility field {
+  @apply h-[52px] w-full rounded-[10px] border border-field bg-white px-4 font-ui text-base text-ink placeholder:text-taupe focus:border-orange-btn focus:outline-none;
+}
+
+/* Impressum / Datenschutz rich text */
+.legal {
+  h2 { @apply heading mb-6; }
+  h3 { @apply mt-8 mb-2 text-xl font-bold text-ink; }
+  p, ul, ol { @apply mb-4 leading-relaxed; }
+  ul { @apply list-disc pl-6; }
+  ol { @apply list-decimal pl-6; }
+  a { @apply text-orange underline; }
+}
