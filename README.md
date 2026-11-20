@@ -30,9 +30,10 @@ Server needs PHP 8.4+, MySQL 8, Composer. Node is only needed to build assets
    APP_DEBUG=false
    APP_URL=https://madrisamitherz.ch
    DB_DATABASE=… DB_USERNAME=… DB_PASSWORD=…
-   MAIL_MAILER=smtp
-   MAIL_HOST=… MAIL_PORT=587 MAIL_USERNAME=… MAIL_PASSWORD=…
-   MAIL_FROM_ADDRESS=noreply@madrisamitherz.ch
+   MAIL_MAILER=ses
+   AWS_ACCESS_KEY_ID=… AWS_SECRET_ACCESS_KEY=…
+   AWS_DEFAULT_REGION=…                 # region of the SES account
+   MAIL_FROM_ADDRESS=noreply@madrisamitherz.ch   # must be a verified SES identity
    MAIL_FROM_NAME="Stiftung Madrisa mit Herz"
    ```
    Mail is only used by the contact form (sent to the address in Admin → Meta, reply-to = visitor).
